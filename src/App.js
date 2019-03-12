@@ -50,7 +50,12 @@ class App extends Component {
             <div>
                <ul>
                   {this.props.history.map((el) => (
-                      <li className="historyItem" key={el.id} > {el.age} </li>))}
+                      <li 
+                        className="historyItem" 
+                        key={el.id} 
+                        onClick={() => this.props.onDeleteItem(el.id)} > 
+                        {el.age} 
+                     </li>))}
                </ul>
             </div>
          </div>
@@ -69,7 +74,8 @@ const mapDispatchToProps = (dispatch) => {
    // this returns the mapped object
    return {
       onAgeUp: () => dispatch({ type: 'AGE_UP', value: 1}),
-      onAgeDown: () => dispatch({ type: 'AGE_DOWN', value: 1})
+      onAgeDown: () => dispatch({ type: 'AGE_DOWN', value: 1}),
+      onDeleteItem: (id) => dispatch({type:'DELETE_ITEM', key: id })
    };
 };
 
