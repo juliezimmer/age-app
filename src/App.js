@@ -13,14 +13,17 @@ class App extends Component {
    onAgeUp = () => {
       this.setState({
          ...this.state,
-         age: ++this.state.age
+         age:++this.state.age
       });
    }
-
-   onAgeUp = () => {
+   
+   // event handler to decrease the age
+   // this handler will take the current state.age and decrease it by 1
+   // this function also goes in the 'Age Down' opening button  tag as the onClick event handler
+   onAgeDown = () => {
       this.setState({
          ...this.state,
-         age: ++this.state.age
+         age: --this.state.age
       });
    }
    render() {
@@ -28,7 +31,7 @@ class App extends Component {
          <div className="App">
             <div>Age: <span>{this.state.age}</span></div>
             <button onClick={this.onAgeUp}>Age Up</button>
-            <button>Age Down</button>
+            <button onClick={this.onAgeDown}>Age Down</button>
          </div>
       );
    }
